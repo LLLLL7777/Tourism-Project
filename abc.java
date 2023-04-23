@@ -1,27 +1,27 @@
 /**
-	 * É¾³ıhash±íÖĞµÄÖµ
-	 * @param key ¼ü ²»ÄÜÎªnull
-	 * @param item Ïî ¿ÉÒÔÊ¹¶à¸ö ²»ÄÜÎªnull
+	 * åˆ é™¤hashè¡¨ä¸­çš„å€¼
+	 * @param key é”® ä¸èƒ½ä¸ºnull
+	 * @param item é¡¹ å¯ä»¥ä½¿å¤šä¸ª ä¸èƒ½ä¸ºnull
 	 */
 	public void hdel(String key, Object... item){
 		redisTemplate.opsForHash().delete(key,item);
 	}
 
 	/**
-	 * ÅĞ¶Ïhash±íÖĞÊÇ·ñÓĞ¸ÃÏîµÄÖµ
-	 * @param key ¼ü ²»ÄÜÎªnull
-	 * @param item Ïî ²»ÄÜÎªnull
-	 * @return true ´æÔÚ false²»´æÔÚ
+	 * åˆ¤æ–­hashè¡¨ä¸­æ˜¯å¦æœ‰è¯¥é¡¹çš„å€¼
+	 * @param key é”® ä¸èƒ½ä¸ºnull
+	 * @param item é¡¹ ä¸èƒ½ä¸ºnull
+	 * @return true å­˜åœ¨ falseä¸å­˜åœ¨
 	 */
 	public boolean hHasKey(String key, String item){
 		return redisTemplate.opsForHash().hasKey(key, item);
 	}
 
 	/**
-	 * hashµİÔö Èç¹û²»´æÔÚ,¾Í»á´´½¨Ò»¸ö ²¢°ÑĞÂÔöºóµÄÖµ·µ»Ø
-	 * @param key ¼ü
-	 * @param item Ïî
-	 * @param by ÒªÔö¼Ó¼¸(´óÓÚ0)
+	 * hashé€’å¢ å¦‚æœä¸å­˜åœ¨,å°±ä¼šåˆ›å»ºä¸€ä¸ª å¹¶æŠŠæ–°å¢åçš„å€¼è¿”å›
+	 * @param key é”®
+	 * @param item é¡¹
+	 * @param by è¦å¢åŠ å‡ (å¤§äº0)
 	 * @return
 	 */
 	public double hincr(String key, String item,double by){
@@ -29,10 +29,10 @@
 	}
 
 	/**
-	 * hashµİ¼õ
-	 * @param key ¼ü
-	 * @param item Ïî
-	 * @param by Òª¼õÉÙ¼Ç(Ğ¡ÓÚ0)
+	 * hashé€’å‡
+	 * @param key é”®
+	 * @param item é¡¹
+	 * @param by è¦å‡å°‘è®°(å°äº0)
 	 * @return
 	 */
 	public double hdecr(String key, String item,double by){
@@ -41,8 +41,8 @@
 
 	//============================set=============================
 	/**
-	 * ¸ù¾İkey»ñÈ¡SetÖĞµÄËùÓĞÖµ
-	 * @param key ¼ü
+	 * æ ¹æ®keyè·å–Setä¸­çš„æ‰€æœ‰å€¼
+	 * @param key é”®
 	 * @return
 	 */
 	public Set<Object> sGet(String key){
@@ -55,10 +55,10 @@
 	}
 
 	/**
-	 * ¸ù¾İvalue´ÓÒ»¸ösetÖĞ²éÑ¯,ÊÇ·ñ´æÔÚ
-	 * @param key ¼ü
-	 * @param value Öµ
-	 * @return true ´æÔÚ false²»´æÔÚ
+	 * æ ¹æ®valueä»ä¸€ä¸ªsetä¸­æŸ¥è¯¢,æ˜¯å¦å­˜åœ¨
+	 * @param key é”®
+	 * @param value å€¼
+	 * @return true å­˜åœ¨ falseä¸å­˜åœ¨
 	 */
 	public boolean sHasKey(String key,Object value){
 		try {
@@ -70,10 +70,10 @@
 	}
 
 	/**
-	 * ½«Êı¾İ·ÅÈëset»º´æ
-	 * @param key ¼ü
-	 * @param values Öµ ¿ÉÒÔÊÇ¶à¸ö
-	 * @return ³É¹¦¸öÊı
+	 * å°†æ•°æ®æ”¾å…¥setç¼“å­˜
+	 * @param key é”®
+	 * @param values å€¼ å¯ä»¥æ˜¯å¤šä¸ª
+	 * @return æˆåŠŸä¸ªæ•°
 	 */
 	public long sSet(String key, Object...values) {
 		try {
@@ -85,11 +85,11 @@
 	}
 
 	/**
-	 * ½«setÊı¾İ·ÅÈë»º´æ
-	 * @param key ¼ü
-	 * @param time Ê±¼ä(Ãë)
-	 * @param values Öµ ¿ÉÒÔÊÇ¶à¸ö
-	 * @return ³É¹¦¸öÊı
+	 * å°†setæ•°æ®æ”¾å…¥ç¼“å­˜
+	 * @param key é”®
+	 * @param time æ—¶é—´(ç§’)
+	 * @param values å€¼ å¯ä»¥æ˜¯å¤šä¸ª
+	 * @return æˆåŠŸä¸ªæ•°
 	 */
 	public long sSetAndTime(String key,int indexdb,long time,Object...values) {
 		try {
@@ -104,8 +104,8 @@
 	}
 
 	/**
-	 * »ñÈ¡set»º´æµÄ³¤¶È
-	 * @param key ¼ü
+	 * è·å–setç¼“å­˜çš„é•¿åº¦
+	 * @param key é”®
 	 * @return
 	 */
 	public long sGetSetSize(String key){
@@ -118,10 +118,10 @@
 	}
 
 	/**
-	 * ÒÆ³ıÖµÎªvalueµÄ
-	 * @param key ¼ü
-	 * @param values Öµ ¿ÉÒÔÊÇ¶à¸ö
-	 * @return ÒÆ³ıµÄ¸öÊı
+	 * ç§»é™¤å€¼ä¸ºvalueçš„
+	 * @param key é”®
+	 * @param values å€¼ å¯ä»¥æ˜¯å¤šä¸ª
+	 * @return ç§»é™¤çš„ä¸ªæ•°
 	 */
 	public long setRemove(String key, Object ...values) {
 		try {
@@ -135,10 +135,10 @@
 	//===============================list=================================
 
 	/**
-	 * »ñÈ¡list»º´æµÄÄÚÈİ
-	 * @param key ¼ü
-	 * @param start ¿ªÊ¼
-	 * @param end ½áÊø  0 µ½ -1´ú±íËùÓĞÖµ
+	 * è·å–listç¼“å­˜çš„å†…å®¹
+	 * @param key é”®
+	 * @param start å¼€å§‹
+	 * @param end ç»“æŸ  0 åˆ° -1ä»£è¡¨æ‰€æœ‰å€¼
 	 * @return
 	 */
 	public List<Object> lGet(String key,long start, long end){

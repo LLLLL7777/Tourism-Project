@@ -1,6 +1,6 @@
 /**
-	 * »ñÈ¡list»º´æµÄ³¤¶È
-	 * @param key ¼ü
+	 * è·å–listç¼“å­˜çš„é•¿åº¦
+	 * @param key é”®
 	 * @return
 	 */
 	public long lGetListSize(String key){
@@ -13,9 +13,9 @@
 	}
 
 	/**
-	 * Í¨¹ıË÷Òı »ñÈ¡listÖĞµÄÖµ
-	 * @param key ¼ü
-	 * @param index Ë÷Òı  index>=0Ê±£¬ 0 ±íÍ·£¬1 µÚ¶ş¸öÔªËØ£¬ÒÀ´ÎÀàÍÆ£»index<0Ê±£¬-1£¬±íÎ²£¬-2µ¹ÊıµÚ¶ş¸öÔªËØ£¬ÒÀ´ÎÀàÍÆ
+	 * é€šè¿‡ç´¢å¼• è·å–listä¸­çš„å€¼
+	 * @param key é”®
+	 * @param index ç´¢å¼•  index>=0æ—¶ï¼Œ 0 è¡¨å¤´ï¼Œ1 ç¬¬äºŒä¸ªå…ƒç´ ï¼Œä¾æ¬¡ç±»æ¨ï¼›index<0æ—¶ï¼Œ-1ï¼Œè¡¨å°¾ï¼Œ-2å€’æ•°ç¬¬äºŒä¸ªå…ƒç´ ï¼Œä¾æ¬¡ç±»æ¨
 	 * @return
 	 */
 	public Object lGetIndex(String key,long index){
@@ -28,10 +28,10 @@
 	}
 
 	/**
-	 * ½«list·ÅÈë»º´æ
-	 * @param key ¼ü
-	 * @param value Öµ
-	 * @param time Ê±¼ä(Ãë)
+	 * å°†listæ”¾å…¥ç¼“å­˜
+	 * @param key é”®
+	 * @param value å€¼
+	 * @param time æ—¶é—´(ç§’)
 	 * @return
 	 */
 	public boolean lSet(String key, Object value) {
@@ -45,10 +45,10 @@
 	}
 
 	/**
-	 * ½«list·ÅÈë»º´æ
-	 * @param key ¼ü
-	 * @param value Öµ
-	 * @param time Ê±¼ä(Ãë)
+	 * å°†listæ”¾å…¥ç¼“å­˜
+	 * @param key é”®
+	 * @param value å€¼
+	 * @param time æ—¶é—´(ç§’)
 	 * @return
 	 */
 	public boolean lSet(String key, Object value,int indexdb, long time) {
@@ -64,10 +64,10 @@
 	}
 
 	/**
-	 * ½«list·ÅÈë»º´æ
-	 * @param key ¼ü
-	 * @param value Öµ
-	 * @param time Ê±¼ä(Ãë)
+	 * å°†listæ”¾å…¥ç¼“å­˜
+	 * @param key é”®
+	 * @param value å€¼
+	 * @param time æ—¶é—´(ç§’)
 	 * @return
 	 */
 	public boolean lSet(String key, List<Object> value) {
@@ -81,10 +81,10 @@
 	}
 
 	/**
-	 * ½«list·ÅÈë»º´æ
-	 * @param key ¼ü
-	 * @param value Öµ
-	 * @param time Ê±¼ä(Ãë)
+	 * å°†listæ”¾å…¥ç¼“å­˜
+	 * @param key é”®
+	 * @param value å€¼
+	 * @param time æ—¶é—´(ç§’)
 	 * @return
 	 */
 	public boolean lSet(String key, List<Object> value, int indexdb, long time) {
@@ -100,10 +100,10 @@
 	}
 
 	/**
-	 * ¸ù¾İË÷ÒıĞŞ¸ÄlistÖĞµÄÄ³ÌõÊı¾İ
-	 * @param key ¼ü
-	 * @param index Ë÷Òı
-	 * @param value Öµ
+	 * æ ¹æ®ç´¢å¼•ä¿®æ”¹listä¸­çš„æŸæ¡æ•°æ®
+	 * @param key é”®
+	 * @param index ç´¢å¼•
+	 * @param value å€¼
 	 * @return
 	 */
 	public boolean lUpdateIndex(String key, long index,Object value) {
@@ -117,11 +117,11 @@
 	}
 
 	/**
-	 * ÒÆ³ıN¸öÖµÎªvalue
-	 * @param key ¼ü
-	 * @param count ÒÆ³ı¶àÉÙ¸ö
-	 * @param value Öµ
-	 * @return ÒÆ³ıµÄ¸öÊı
+	 * ç§»é™¤Nä¸ªå€¼ä¸ºvalue
+	 * @param key é”®
+	 * @param count ç§»é™¤å¤šå°‘ä¸ª
+	 * @param value å€¼
+	 * @return ç§»é™¤çš„ä¸ªæ•°
 	 */
 	public long lRemove(String key,long count,Object value) {
 		try {

@@ -1,9 +1,9 @@
 /**
-	 * ÆÕÍ¨»º´æ·ÅÈë²¢ÉèÖÃÊ±¼ä
-	 * @param key ¼ü
-	 * @param value Öµ
-	 * @param time Ê±¼ä(Ãë) timeÒª´óÓÚ0 Èç¹ûtimeĞ¡ÓÚµÈÓÚ0 ½«ÉèÖÃÎŞÏŞÆÚ
-	 * @return true³É¹¦ false Ê§°Ü
+	 * æ™®é€šç¼“å­˜æ”¾å…¥å¹¶è®¾ç½®æ—¶é—´
+	 * @param key é”®
+	 * @param value å€¼
+	 * @param time æ—¶é—´(ç§’) timeè¦å¤§äº0 å¦‚æœtimeå°äºç­‰äº0 å°†è®¾ç½®æ— é™æœŸ
+	 * @return trueæˆåŠŸ false å¤±è´¥
 	 */
 	public boolean set(String key,Object value,int indexdb,long time){
 		try {
@@ -21,27 +21,27 @@
 	}
 
 	/**
-	 * µİÔö
-	 * @param key ¼ü
-	 * @param by ÒªÔö¼Ó¼¸(´óÓÚ0)
+	 * é€’å¢
+	 * @param key é”®
+	 * @param by è¦å¢åŠ å‡ (å¤§äº0)
 	 * @return
 	 */
 	public long incr(String key, long delta){
 		if(delta<0){
-			throw new RuntimeException("µİÔöÒò×Ó±ØĞë´óÓÚ0");
+			throw new RuntimeException("é€’å¢å› å­å¿…é¡»å¤§äº0");
 		}
 		return redisTemplate.opsForValue().increment(key, delta);
 	}
 
 	/**
-	 * µİ¼õ
-	 * @param key ¼ü
-	 * @param by Òª¼õÉÙ¼¸(Ğ¡ÓÚ0)
+	 * é€’å‡
+	 * @param key é”®
+	 * @param by è¦å‡å°‘å‡ (å°äº0)
 	 * @return
 	 */
 	public long decr(String key, long delta){
 		if(delta<0){
-			throw new RuntimeException("µİ¼õÒò×Ó±ØĞë´óÓÚ0");
+			throw new RuntimeException("é€’å‡å› å­å¿…é¡»å¤§äº0");
 		}
 		return redisTemplate.opsForValue().increment(key, -delta);
 	}
@@ -49,18 +49,18 @@
 	//================================Map=================================
 	/**
 	 * HashGet
-	 * @param key ¼ü ²»ÄÜÎªnull
-	 * @param item Ïî ²»ÄÜÎªnull
-	 * @return Öµ
+	 * @param key é”® ä¸èƒ½ä¸ºnull
+	 * @param item é¡¹ ä¸èƒ½ä¸ºnull
+	 * @return å€¼
 	 */
 	public Object hget(String key,String item){
 		return redisTemplate.opsForHash().get(key, item);
 	}
 
 	/**
-	 * »ñÈ¡hashKey¶ÔÓ¦µÄËùÓĞ¼üÖµ
-	 * @param key ¼ü
-	 * @return ¶ÔÓ¦µÄ¶à¸ö¼üÖµ
+	 * è·å–hashKeyå¯¹åº”çš„æ‰€æœ‰é”®å€¼
+	 * @param key é”®
+	 * @return å¯¹åº”çš„å¤šä¸ªé”®å€¼
 	 */
 	public Map<Object,Object> hmget(String key){
 		return redisTemplate.opsForHash().entries(key);
@@ -68,9 +68,9 @@
 
 	/**
 	 * HashSet
-	 * @param key ¼ü
-	 * @param map ¶ÔÓ¦¶à¸ö¼üÖµ
-	 * @return true ³É¹¦ false Ê§°Ü
+	 * @param key é”®
+	 * @param map å¯¹åº”å¤šä¸ªé”®å€¼
+	 * @return true æˆåŠŸ false å¤±è´¥
 	 */
 	public boolean hmset(String key, Map<String,Object> map){
 		try {
@@ -83,11 +83,11 @@
 	}
 
 	/**
-	 * HashSet ²¢ÉèÖÃÊ±¼ä
-	 * @param key ¼ü
-	 * @param map ¶ÔÓ¦¶à¸ö¼üÖµ
-	 * @param time Ê±¼ä(Ãë)
-	 * @return true³É¹¦ falseÊ§°Ü
+	 * HashSet å¹¶è®¾ç½®æ—¶é—´
+	 * @param key é”®
+	 * @param map å¯¹åº”å¤šä¸ªé”®å€¼
+	 * @param time æ—¶é—´(ç§’)
+	 * @return trueæˆåŠŸ falseå¤±è´¥
 	 */
 	public boolean hmset(String key, Map<String,Object> map, int indexdb,long time){
 		try {
@@ -104,11 +104,11 @@
 	}
 
 	/**
-	 * ÏòÒ»ÕÅhash±íÖĞ·ÅÈëÊı¾İ,Èç¹û²»´æÔÚ½«´´½¨
-	 * @param key ¼ü
-	 * @param item Ïî
-	 * @param value Öµ
-	 * @return true ³É¹¦ falseÊ§°Ü
+	 * å‘ä¸€å¼ hashè¡¨ä¸­æ”¾å…¥æ•°æ®,å¦‚æœä¸å­˜åœ¨å°†åˆ›å»º
+	 * @param key é”®
+	 * @param item é¡¹
+	 * @param value å€¼
+	 * @return true æˆåŠŸ falseå¤±è´¥
 	 */
 	public boolean hset(String key,String item,Object value) {
 		try {
@@ -121,12 +121,12 @@
 	}
 
 	/**
-	 * ÏòÒ»ÕÅhash±íÖĞ·ÅÈëÊı¾İ,Èç¹û²»´æÔÚ½«´´½¨
-	 * @param key ¼ü
-	 * @param item Ïî
-	 * @param value Öµ
-	 * @param time Ê±¼ä(Ãë)  ×¢Òâ:Èç¹ûÒÑ´æÔÚµÄhash±íÓĞÊ±¼ä,ÕâÀï½«»áÌæ»»Ô­ÓĞµÄÊ±¼ä
-	 * @return true ³É¹¦ falseÊ§°Ü
+	 * å‘ä¸€å¼ hashè¡¨ä¸­æ”¾å…¥æ•°æ®,å¦‚æœä¸å­˜åœ¨å°†åˆ›å»º
+	 * @param key é”®
+	 * @param item é¡¹
+	 * @param value å€¼
+	 * @param time æ—¶é—´(ç§’)  æ³¨æ„:å¦‚æœå·²å­˜åœ¨çš„hashè¡¨æœ‰æ—¶é—´,è¿™é‡Œå°†ä¼šæ›¿æ¢åŸæœ‰çš„æ—¶é—´
+	 * @return true æˆåŠŸ falseå¤±è´¥
 	 */
 	public boolean hset(String key,String item,Object value,int indexdb, long time) {
 		try {
